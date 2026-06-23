@@ -11,11 +11,15 @@ embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
 
-db = Chroma(
-    persist_directory="chroma_db",
-    embedding_function=embeddings
-)
+from langchain_community.document_loaders import PyPDFLoader
 
+loader = PyPDFLoader("data/sample.pdf")
+documents = loader.load()
+
+db = Chroma.from_documents(
+    documents=documents,
+    embedding=embeddings
+)
 llm = ChatGroq(
     groq_api_key=GROQ_API_KEY,
     model_name="llama-3.1-8b-instant"
