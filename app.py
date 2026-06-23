@@ -12,7 +12,7 @@ embeddings = HuggingFaceEmbeddings(
 )
 
 db = Chroma(
-    persist_directory="./chroma_db",
+    persist_directory="chroma_db",
     embedding_function=embeddings
 )
 
