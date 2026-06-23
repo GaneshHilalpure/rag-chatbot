@@ -2,9 +2,7 @@ streamlit
 langchain
 langchain-community
 langchain-groq
-langchain-huggingface
-chromadb
+chromadb==0.4.24
 sentence-transformers
 pypdf
-torch
-torchvision
+protobuf==3.20.3
